@@ -81,7 +81,7 @@
                     topicCount++;
                     const newTopic = document.createElement('div');
                     newTopic.className = 'input-group mb-3';
-                    
+
                     const topicDesc = document.createElement('span');
                     topicDesc.className = 'input-group-text';
                     topicDesc.id = `topic${topicCount}-desc`;
@@ -100,10 +100,6 @@
                     document.getElementById('topics').appendChild(newTopic);
                 }
                 function removeTopic() {
-                    if (topicCount > 1) {
-                        document.getElementById('topics').lastChild.remove();
-                        topicCount = document.getElementById('topics').children.length;
-                    }
                     if (topicCount > 1) {
                         document.getElementById('topics').lastChild.remove();
                         topicCount = document.getElementById('topics').children.length;
