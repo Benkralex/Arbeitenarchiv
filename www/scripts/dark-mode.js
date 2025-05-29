@@ -37,16 +37,16 @@ function setDarkMode() {
     const icon = document.getElementById('darkmode-icon');
     body.setAttribute('data-bs-theme', 'dark');
     setCookie('darkMode', 'true', 30);
-    icon.src = '/icons/moon-stars-fill.svg';
-    icon.alt = 'Dark Mode Icon';
+    icon.src = '/icons/sun-fill.svg';
+    icon.alt = 'Light Mode Icon';
 }
 function setLightMode() {
     const body = document.body;
     const icon = document.getElementById('darkmode-icon');
     body.setAttribute('data-bs-theme', 'light');
     setCookie('darkMode', 'false', 30);
-    icon.src = '/icons/sun-fill.svg';
-    icon.alt = 'Light Mode Icon';
+    icon.src = '/icons/moon-stars-fill.svg';
+    icon.alt = 'Dark Mode Icon';
 }
 
 function setCookie(cname, cvalue, exdays) {
