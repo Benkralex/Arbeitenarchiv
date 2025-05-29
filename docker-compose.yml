@@ -4,7 +4,7 @@ services:
     volumes:
       - ./www:/usr/share/nginx/html:ro
     ports:
-      - "80:80"
+      - "8003:80"
     restart: unless-stopped
   editor:
     build: .
