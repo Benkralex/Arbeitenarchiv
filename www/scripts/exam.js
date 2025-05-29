@@ -45,7 +45,7 @@ if (id) {
                     modal.setAttribute('aria-labelledby', pic+'-Label');
                     modal.id = pic;
                     modal.innerHTML = `
-                        <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h1 class="modal-title fs-5" id="${pic}-Label">${pic}</h1>
