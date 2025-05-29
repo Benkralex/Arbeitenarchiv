@@ -39,7 +39,9 @@ if (id) {
                     link.appendChild(img);
                     document.getElementById('images').appendChild(link);
                     const modal = document.createElement('div');
-                    modal.className = 'modal-dialog modal-dialog-centered fade';
+                    modal.className = 'modal-dialog modal-dialog-centered modal fade';
+                    modal.setAttribute('tabindex', '-1');
+                    modal.setAttribute('aria-hidden', 'true');
                     modal.id = pic;
                     modal.innerHTML = `
                         <div class="modal-dialog">
