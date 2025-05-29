@@ -79,11 +79,25 @@
                 var topicCount = 1;
                 function addTopic() {
                     topicCount++;
-                    document.getElementById('topics').innerHTML += `
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="topic${topicCount}-desc">Thema ${topicCount}</span>
-                            <input class="form-control" aria-describedby="topic${topicCount}-desc" type="text" id="topic${topicCount}" name="topic${topicCount}" required>
-                        </div>`;
+                    const newTopic = document.createElement('div');
+                    newTopic.className = 'input-group mb-3';
+                    
+                    const topicDesc = document.createElement('span');
+                    topicDesc.className = 'input-group-text';
+                    topicDesc.id = `topic${topicCount}-desc`;
+                    topicDesc.innerText = `Thema ${topicCount}`;
+                    newTopic.appendChild(topicDesc);
+
+                    const topicInput = document.createElement('input');
+                    topicInput.className = 'form-control';
+                    topicInput.setAttribute('aria-describedby', `topic${topicCount}-desc`);
+                    topicInput.type = 'text';
+                    topicInput.id = `topic${topicCount}`;
+                    topicInput.name = `topic${topicCount}`;
+                    topicInput.required = true;
+                    newTopic.appendChild(topicInput);
+            
+                    document.getElementById('topics').appendChild(newTopic);
                 }
                 function removeTopic() {
                     if (topicCount > 1) {
