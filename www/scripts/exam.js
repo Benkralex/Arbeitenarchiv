@@ -42,21 +42,18 @@ if (id) {
                     modal.className = 'modal fade';
                     modal.setAttribute('tabindex', '-1');
                     modal.setAttribute('aria-hidden', 'true');
+                    modal.setAttribute('aria-labelledby', pic+'-Label');
                     modal.id = pic;
                     modal.innerHTML = `
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <img src="/data/${pic}" class="modal-content" style="max-width: 100%; max-height: 100%;">
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="${pic}-Label">${pic}</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="/data/${pic}" class="modal-content" style="max-width: 100%; max-height: 100%;">
+                                </div>
                             </div>
                         </div>
                     `;
