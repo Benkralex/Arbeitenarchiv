@@ -29,7 +29,7 @@ if (id) {
                     const link = document.createElement('a');
                     link.setAttribute('data-bs-toggle', 'modal');
                     link.setAttribute('data-bs-target', '#'+pic);
-                    link.href = "/data/" + pic;
+                    //link.href = "/data/" + pic;
                     link.target = "_blank";
                     const img = document.createElement('img');
                     img.src = "/data/" + pic;
@@ -39,12 +39,12 @@ if (id) {
                     link.appendChild(img);
                     document.getElementById('images').appendChild(link);
                     const modal = document.createElement('div');
-                    modal.className = 'modal-dialog modal-dialog-centered modal fade';
+                    modal.className = 'modal fade';
                     modal.setAttribute('tabindex', '-1');
                     modal.setAttribute('aria-hidden', 'true');
                     modal.id = pic;
                     modal.innerHTML = `
-                        <div class="modal-dialog">
+                        <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
