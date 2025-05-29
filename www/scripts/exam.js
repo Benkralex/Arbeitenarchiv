@@ -27,6 +27,8 @@ if (id) {
                     </ul>`;
                 for (const pic of data.images) {
                     const link = document.createElement('a');
+                    link.setAttribute('data-bs-toggle', 'modal');
+                    link.setAttribute('data-bs-target', '#'+pic);
                     link.href = "/data/" + pic;
                     link.target = "_blank";
                     const img = document.createElement('img');
@@ -36,6 +38,13 @@ if (id) {
                     img.style.margin = '5px';
                     link.appendChild(img);
                     document.getElementById('images').appendChild(link);
+                    const modal = document.createElement('div');
+                    modal.className = 'modal-dialog modal-dialog-centered fade';
+                    modal.id = pic;
+                    modal.innerHTML = `
+                        <img src="/data/${pic}" class="modal-content" style="max-width: 100%; max-height: 100%;">
+                    `;
+                    document.body.appendChild(modal);
                 }
             } else {
                 document.getElementById('information').innerHTML = '<p>No data found.</p>';
