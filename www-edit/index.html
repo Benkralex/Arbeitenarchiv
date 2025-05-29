@@ -6,35 +6,27 @@
     <link href="/bootstrap-5.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="/bootstrap-5.3.6-dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="./styles.css">
+    <script src="./dark-mode.js"></script>
 </head>
 <body>
-    <button class="btn btn-outline-secondary ms-auto" id="darkmode-toggle" onclick="
-            const body = document.body;
-            const icon = document.getElementById('darkmode-icon');
-            const isDarkMode = body.getAttribute('data-bs-theme') === 'dark';
-            body.setAttribute('data-bs-theme', isDarkMode ? 'light' : 'dark');
-            if (isDarkMode) {
-                icon.src = './icons/moon-stars-fill.svg';
-                icon.alt = 'Dark Mode Icon';
-            } else {
-                icon.src = './icons/sun-fill.svg';
-                icon.alt = 'Light Mode Icon';
-            }
-        ">
-        <img id="darkmode-icon" src="./icons/moon-stars-fill.svg" alt="Dark Mode Icon" width="24" height="24">
-    </button>
+    <div id="header" class="d-flex flex-row align-items-center gap-2">
+        <img src="./favicon2-lowres.png" width="50px" height="50px" alt="Logo" class="logo">
+        <h1 class="mt-4 flex-grow-1">Arbeit hochladen</h1>
+        <button class="btn btn-outline-secondary ms-auto" id="darkmode-toggle" onclick="toggleDarkMode()">
+            <img id="darkmode-icon" src="/icons/moon-stars-fill.svg" alt="Dark Mode Icon" width="24" height="24">
+        </button>
+    </div>
     <form action="add_entry.php" method="POST" enctype="multipart/form-data">
-        <h1>Add New Entry</h1>
         <div class="input-group mb-3">
-            <span class="input-group-text" id="subject-desc">Subject</span>
+            <span class="input-group-text" id="subject-desc">Fach</span>
             <input class="form-control" aria-describedby="subject-desc" type="text" id="subject" name="subject" required>
         </div>
         <div class="input-group mb-3">
-            <span class="input-group-text" id="teacher-desc">Teacher</span>
+            <span class="input-group-text" id="teacher-desc">Lehrer</span>
             <input class="form-control" aria-describedby="teacher-desc" type="text" id="teacher" name="teacher" required>
         </div>
         <div class="input-group mb-3">
-            <span class="input-group-text" id="grade-level-desc">Grade Level</span>
+            <span class="input-group-text" id="grade-level-desc">Stufe</span>
             <input class="form-control" aria-describedby="grade-level-desc" type="number" id="grade_level" name="grade_level" min="5" max="13" step="1" value="8" required>
             <button class="btn btn-outline-primary" type="button" onclick="
                 const gradeInput1 = document.getElementById('grade_level');
@@ -50,7 +42,7 @@
             ">-</button>
         </div>
         <div class="input-group mb-3">
-            <span class="input-group-text" id="year-desc">Year</span>
+            <span class="input-group-text" id="year-desc">Jahr</span>
             <input class="form-control" aria-describedby="year-desc" type="number" id="year" name="year" min="2000" max="2009" step="1" value="2009" required>
             <button class="btn btn-outline-primary" type="button" onclick="
                 const yearInput1 = document.getElementById('year');
@@ -74,7 +66,7 @@
         <div>
             <div id="topics">
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="topic1-desc">Topic 1</span>
+                    <span class="input-group-text" id="topic1-desc">Thema 1</span>
                     <input class="form-control" aria-describedby="topic1-desc" type="text" id="topic1" name="topic1" required>
                 </div>
             </div>
@@ -88,7 +80,7 @@
                     topicCount++;
                     document.getElementById('topics').innerHTML += `
                         <div class="input-group mb-3">
-                            <span class="input-group-text" id="topic${topicCount}-desc">Topic ${topicCount}</span>
+                            <span class="input-group-text" id="topic${topicCount}-desc">Thema ${topicCount}</span>
                             <input class="form-control" aria-describedby="topic${topicCount}-desc" type="text" id="topic${topicCount}" name="topic${topicCount}" required>
                         </div>`;
                 }
@@ -106,7 +98,7 @@
         </div>
         <div id="image-preview"></div>
         <div>
-            <label for="images">Upload Images:</label>
+            <label for="images">Bilder hochladen:</label>
             <input class="form-control" type="file" id="images" name="images[]" accept="image/*" multiple>
             <script>
                 document.getElementById('images').addEventListener('change', function(event) {
@@ -122,7 +114,7 @@
                 });
             </script>
         </div>
-        <button class="btn btn-primary" type="submit">Add Entry</button>
+        <button class="btn btn-primary" type="submit">hochladen</button>
     </form>
 </body>
 </html>
