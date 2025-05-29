@@ -3,6 +3,7 @@ services:
     image: nginx:alpine
     volumes:
       - ./www:/usr/share/nginx/html:ro
+      - ./logs:/var/log/nginx
     ports:
       - "8003:80"
     restart: unless-stopped
