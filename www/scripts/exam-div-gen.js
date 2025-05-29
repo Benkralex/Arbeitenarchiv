@@ -57,7 +57,7 @@ function getExamDiv(item, index) {
                 </ul>
                 <div class="flex-grow-1" style="min-height:0px;"></div>
                 <div class="card-body" style="max-height: 70px;">
-                    <a href="/arbeit?id=${item.id}" class="card-link btn btn-primary" target="_blank">Anschauen</a>
+                    <a href="/arbeit?id=${item.id}" class="card-link btn btn-primary">Anschauen</a>
                 </div>
             </div>
         `;
