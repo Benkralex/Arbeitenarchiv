@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Entry</title>
+    <link href="/bootstrap-5.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/bootstrap-5.3.6-dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <button class="btn btn-outline-secondary ms-auto" id="darkmode-toggle" onclick="
+            const body = document.body;
+            const icon = document.getElementById('darkmode-icon');
+            const isDarkMode = body.getAttribute('data-bs-theme') === 'dark';
+            body.setAttribute('data-bs-theme', isDarkMode ? 'light' : 'dark');
+            if (isDarkMode) {
+                icon.src = './icons/moon-stars-fill.svg';
+                icon.alt = 'Dark Mode Icon';
+            } else {
+                icon.src = './icons/sun-fill.svg';
+                icon.alt = 'Light Mode Icon';
+            }
+        ">
+        <img id="darkmode-icon" src="./icons/moon-stars-fill.svg" alt="Dark Mode Icon" width="24" height="24">
+    </button>
+    <form action="add_entry.php" method="POST" enctype="multipart/form-data">
+        <h1>Add New Entry</h1>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="subject-desc">Subject</span>
+            <input class="form-control" aria-describedby="subject-desc" type="text" id="subject" name="subject" required>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="teacher-desc">Teacher</span>
+            <input class="form-control" aria-describedby="teacher-desc" type="text" id="teacher" name="teacher" required>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="grade-level-desc">Grade Level</span>
+            <input class="form-control" aria-describedby="grade-level-desc" type="number" id="grade_level" name="grade_level" min="5" max="13" step="1" value="8" required>
+            <button class="btn btn-outline-primary" type="button" onclick="
+                const gradeInput1 = document.getElementById('grade_level');
+                let val1 = parseInt(gradeInput1.value, 10);
+                let max1 = parseInt(gradeInput1.max, 10);
+                if (val1 < max1) gradeInput1.value = val1 + 1;
+            ">+</button>
+            <button class="btn btn-outline-primary" type="button" onclick="
+                const gradeInput2 = document.getElementById('grade_level');
+                let val2 = parseInt(gradeInput2.value, 10);
+                let min2 = parseInt(gradeInput2.min, 10);
+                if (val2 > min2) gradeInput2.value = val2 - 1;
+            ">-</button>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="year-desc">Year</span>
+            <input class="form-control" aria-describedby="year-desc" type="number" id="year" name="year" min="2000" max="2009" step="1" value="2009" required>
+            <button class="btn btn-outline-primary" type="button" onclick="
+                const yearInput1 = document.getElementById('year');
+                let val3 = parseInt(yearInput1.value, 10);
+                let max3 = parseInt(yearInput1.max, 10);
+                if (val3 < max3) yearInput1.value = val3 + 1;
+            ">+</button>
+            <button class="btn btn-outline-primary" type="button" onclick="
+                const yearInput2 = document.getElementById('year');
+                let val4 = parseInt(yearInput2.value, 10);
+                let min4 = parseInt(yearInput2.min, 10);
+                if (val4 > min4) yearInput2.value = val4 - 1;
+            ">-</button>
+        </div>
+        <script>
+            const yearSelect = document.getElementById('year');
+            const currentYear = new Date().getFullYear();
+            yearSelect.max = currentYear;
+            yearSelect.value = currentYear;
+        </script>
+        <div>
+            <div id="topics">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="topic1-desc">Topic 1</span>
+                    <input class="form-control" aria-describedby="topic1-desc" type="text" id="topic1" name="topic1" required>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <button class="btn btn-outline-primary" type="button" onclick="addTopic()">+</button>
+                <button class="btn btn-outline-danger" type="button" onclick="removeTopic()">-</button>
+            </div>
+            <script>
+                var topicCount = 1;
+                function addTopic() {
+                    topicCount++;
+                    document.getElementById('topics').innerHTML += `
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="topic${topicCount}-desc">Topic ${topicCount}</span>
+                            <input class="form-control" aria-describedby="topic${topicCount}-desc" type="text" id="topic${topicCount}" name="topic${topicCount}" required>
+                        </div>`;
+                }
+                function removeTopic() {
+                    if (topicCount > 1) {
+                        document.getElementById('topics').lastChild.remove();
+                        topicCount = document.getElementById('topics').children.length;
+                    }
+                    if (topicCount > 1) {
+                        document.getElementById('topics').lastChild.remove();
+                        topicCount = document.getElementById('topics').children.length;
+                    }
+                }
+            </script>
+        </div>
+        <div id="image-preview"></div>
+        <div>
+            <label for="images">Upload Images:</label>
+            <input class="form-control" type="file" id="images" name="images[]" accept="image/*" multiple>
+            <script>
+                document.getElementById('images').addEventListener('change', function(event) {
+                    const preview = document.getElementById('image-preview');
+                    preview.innerHTML = '';
+                    Array.from(event.target.files).forEach(file => {
+                        const img = document.createElement('img');
+                        img.src = URL.createObjectURL(file);
+                        img.style.width = '100px';
+                        img.style.marginRight = '10px';
+                        preview.appendChild(img);
+                    });
+                });
+            </script>
+        </div>
+        <button class="btn btn-primary" type="submit">Add Entry</button>
+    </form>
+</body>
+</html>

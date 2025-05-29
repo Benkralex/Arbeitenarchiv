@@ -1,0 +1,16 @@
+services:
+  web:
+    image: nginx:alpine
+    volumes:
+      - ./www:/usr/share/nginx/html:ro
+    ports:
+      - "80:80"
+    restart: unless-stopped
+  editor:
+    build: .
+    volumes:
+      - ./www-edit:/var/www/html
+      - ./www/data:/var/www/data
+    ports: 
+      - "8004:80"
+    restart: unless-stopped

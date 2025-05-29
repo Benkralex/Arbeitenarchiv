@@ -1,0 +1,9 @@
+/www/img
+/www/img/
+/www/img/*
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.svg
