@@ -33,13 +33,13 @@
                 let val1 = parseInt(gradeInput1.value, 10);
                 let max1 = parseInt(gradeInput1.max, 10);
                 if (val1 < max1) gradeInput1.value = val1 + 1;
-            " style="width: 20px;">+</button>
+            " style="width: 50px;">+</button>
             <button class="btn btn-outline-primary" type="button" onclick="
                 const gradeInput2 = document.getElementById('grade_level');
                 let val2 = parseInt(gradeInput2.value, 10);
                 let min2 = parseInt(gradeInput2.min, 10);
                 if (val2 > min2) gradeInput2.value = val2 - 1;
-            " style="width: 20px;">-</button>
+            " style="width: 50px;">-</button>
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="year-desc">Jahr</span>
@@ -49,13 +49,13 @@
                 let val3 = parseInt(yearInput1.value, 10);
                 let max3 = parseInt(yearInput1.max, 10);
                 if (val3 < max3) yearInput1.value = val3 + 1;
-            " style="width: 20px;">+</button>
+            " style="width: 50px;">+</button>
             <button class="btn btn-outline-primary" type="button" onclick="
                 const yearInput2 = document.getElementById('year');
                 let val4 = parseInt(yearInput2.value, 10);
                 let min4 = parseInt(yearInput2.min, 10);
                 if (val4 > min4) yearInput2.value = val4 - 1;
-            " style="width: 20px;">-</button>
+            " style="width: 50px;">-</button>
         </div>
         <script>
             const yearSelect = document.getElementById('year');
@@ -71,8 +71,8 @@
                 </div>
             </div>
             <div class="input-group mb-3">
-                <button class="btn btn-outline-primary" type="button" onclick="addTopic()" style="width: 20px;">+</button>
-                <button class="btn btn-outline-danger" type="button" onclick="removeTopic()" style="width: 20px;">-</button>
+                <button class="btn btn-outline-primary" type="button" onclick="addTopic()" style="width: 50px;">+</button>
+                <button class="btn btn-outline-danger" type="button" onclick="removeTopic()" style="width: 50px;">-</button>
             </div>
             <script>
                 var topicCount = 1;
