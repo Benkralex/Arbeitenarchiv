@@ -1,5 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
-    getCookie('darkMode') === 'true' ? toggleDarkMode() : null;
+    const cookieValue = getCookie('darkMode');
+    if (cookieValue === 'true') {
+        toggleDarkMode();
+    } else if (cookieValue === '') {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            toggleDarkMode();
+        }
+    }
+});
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+    if (event.matches) {
+        setDarkMode();
+    } else {
+        setLightMode();
+    }
 });
 
 function toggleDarkMode() {
@@ -15,6 +30,23 @@ function toggleDarkMode() {
         icon.src = '/icons/sun-fill.svg';
         icon.alt = 'Light Mode Icon';
     }
+}
+
+function setDarkMode() {
+    const body = document.body;
+    const icon = document.getElementById('darkmode-icon');
+    body.setAttribute('data-bs-theme', 'dark');
+    setCookie('darkMode', 'true', 30);
+    icon.src = '/icons/moon-stars-fill.svg';
+    icon.alt = 'Dark Mode Icon';
+}
+function setLightMode() {
+    const body = document.body;
+    const icon = document.getElementById('darkmode-icon');
+    body.setAttribute('data-bs-theme', 'light');
+    setCookie('darkMode', 'false', 30);
+    icon.src = '/icons/sun-fill.svg';
+    icon.alt = 'Light Mode Icon';
 }
 
 function setCookie(cname, cvalue, exdays) {
