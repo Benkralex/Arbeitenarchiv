@@ -36,16 +36,16 @@ function getExamDiv(item, index) {
                             ${images}
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#${carouselId}" data-bs-slide="prev" style="filter: invert(1); ${controls_visible}">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="carousel-control-prev-icon" aria-hidden="true" style="z-index: 20;"></span>
                             <span class="visually-hidden">Previous</span>
-                            <span style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); pointer-events: none; height: 40px; width: 40px;">
+                            <span style="z-index: 10; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); pointer-events: none; height: 40px; width: 40px;">
                                 <span style="display: inline-block; width: 40px; height: 40px; background: rgba(0, 0, 0, 0.7); border-radius: 50%;"></span>
                             </span>
                         </button>
                         <button class="carousel-control-next" type="button" data-bs-target="#${carouselId}" data-bs-slide="next" style="filter: invert(1); ${controls_visible}">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="carousel-control-next-icon" aria-hidden="true" style="z-index: 20;"></span>
                             <span class="visually-hidden">Next</span>
-                            <span style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); pointer-events: none; height: 40px; width: 40px;">
+                            <span style="z-index: 10; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); pointer-events: none; height: 40px; width: 40px;">
                                 <span style="display: inline-block; width: 40px; height: 40px; background: rgba(0, 0, 0, 0.7); border-radius: 50%;"></span>
                             </span>
                         </button>
