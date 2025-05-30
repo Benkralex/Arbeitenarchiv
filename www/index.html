@@ -52,6 +52,9 @@
                     <li><a class="dropdown-item">Alle</a></li>
                 </ul>
             </div>
+            <div>
+                <input type="text" class="form-control" id="search" placeholder="Suche..." oninput="filter.setSearch(this.value); update();">
+            </div>
         </div>
         <div class="container m-0" id="filter">
         </div>

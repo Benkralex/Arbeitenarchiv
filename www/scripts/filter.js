@@ -2,7 +2,8 @@ const filter = {
     subject: [],
     grade_level: [],
     year: [],
-    teachers: []
+    teachers: [],
+    search: '',
 };
 
 function addFilter(type, value) {
@@ -17,5 +18,9 @@ function removeFilter(type, value) {
 }
 function clearFilter(type) {
     filter[type] = [];
+    update();
+}
+function setSearch(value) {
+    filter.search = value.toLowerCase();
     update();
 }
