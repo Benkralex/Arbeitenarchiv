@@ -52,8 +52,9 @@
                     <li><a class="dropdown-item">Alle</a></li>
                 </ul>
             </div>
-            <div>
-                <input type="text" class="form-control" id="search" placeholder="Suche..." oninput="setSearch(this.value); update();">
+            <div class="input-group">
+                <i class="bi bi-search input-group-text" id="search-icon"></i>
+                <input type="text" aria-describedby="search-icon" class="form-control" id="search" placeholder="Suche..." oninput="setSearch(this.value); update();">
             </div>
         </div>
         <div class="container m-0" id="filter">
