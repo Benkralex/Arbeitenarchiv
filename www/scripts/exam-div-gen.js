@@ -13,7 +13,8 @@ function getExamDiv(item, index) {
         const images = item.images.map((bild, i) => `
             <div class="carousel-item ${i === 0 ? 'active' : ''}">
                 <div class="image-wrapper">
-                    <img src="/data/light.png" class="background-img" alt="...">
+                    <!--img src="/data/light.png" class="background-img" alt="..."-->
+                    <div class="background-img"></div>
                     <img src="/data/${bild}" class="foreground-image" alt="...">
                 </div>
             </div>
