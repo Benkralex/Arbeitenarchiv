@@ -34,7 +34,14 @@ function update() {
         const grade_levelFilter = filter.grade_level.length === 0 || filter.grade_level.includes(item.grade_level.toString());
         const yearFilter = filter.year.length === 0 || filter.year.includes(item.year.toString());
         const teacherFilter = filter.teachers.length === 0 || filter.teachers.some(l => l.toLowerCase() === item.teacher.toLowerCase());
-        const searchFilter = filter.search === '' || item.topics.some(topic => topic.toLowerCase().includes(filter.search.toLowerCase()));
+        const searchFilter = 
+            filter.search === '' || 
+            item.topics.some(topic => topic.toLowerCase().includes(filter.search.toLowerCase())) ||
+            item.subject.toLowerCase().includes(filter.search.toLowerCase()) ||
+            item.grade_level.toString().includes(filter.search) ||
+            item.year.toString().includes(filter.search) ||
+            item.teacher.toLowerCase().includes(filter.search.toLowerCase()) ||
+            item.tags.some(tag => tag.toLowerCase().includes(filter.search.toLowerCase()));
         if (!(subjectFilter && grade_levelFilter && yearFilter && teacherFilter && searchFilter)) {
             return;
         }

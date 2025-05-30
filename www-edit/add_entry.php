@@ -97,7 +97,8 @@ $JsonData = [
     'grade_level' => $grade_level,
     'year' => $year,
     'topics' => $topics,
-    'images' => $images
+    'images' => $images,
+    'tags' => []
 ];
 // Save the data to the JSON file
 $data = readData();
